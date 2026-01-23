@@ -1,0 +1,19 @@
+apiVersion: v2
+name: server
+description: A Helm chart for my infrastructure - sealed secrets
+home: https://git.kiszczyc.pl/Jakub/Server-config
+
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+
+keywords:
+  - sealedSecrets
+
+maintainers:
+  - name: Jakub
+
+dependencies:
+  - name: sealed-secrets
+    version: "2.17.9"
+    repository: "https://bitnami-labs.github.io/sealed-secrets"

@@ -1,0 +1,34 @@
+# Generic
+namespace: server-dev
+
+# Application dependencies
+baza_wiedzyDeps:
+  # Mongo
+  db:
+    deployment:
+      name: baza_wiedzy-db-mongo
+      replicas: 1
+      image: mongo
+      tag: 8.2-noble
+      port: 3306
+      limits:
+        cpu: 1
+        memory: 2Gi
+      requests:
+        cpu: 0.25
+        memory: 200M
+    pvc:
+      name: baza_wiedzy-db-mongo-pvc
+      storage: "10Gi"
+    pv:
+      name: baza_wiedzy-db-mongo-pv
+      storage: "10Gi"
+      hostPath: /home/jakub/pv/mongo
+    auth:
+      secretName: baza_wiedzy-mongo-secret
+      baza_wiedzyName: baza_wiedzy-data-mongo-secret
+    service:
+      name: baza_wiedzy-db-mongo-service
+      port:
+        name: baza_wiedzy-db-mongo-service-http
+        value: 27017

@@ -1,0 +1,7 @@
+{{- if .Release.IsInstall }}
+Installation successful
+{{- else if .Release.IsUpgrade }}
+
+{{- else }}
+Installation failed
+{{- end }}

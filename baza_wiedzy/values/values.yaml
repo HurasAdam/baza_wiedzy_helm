@@ -1,0 +1,4 @@
+configmap:
+  name: server
+  data:
+    header: "App has been deployed"
