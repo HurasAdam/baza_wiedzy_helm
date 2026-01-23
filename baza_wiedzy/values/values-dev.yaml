@@ -25,8 +25,8 @@ baza_wiedzyDeps:
       storage: "10Gi"
       hostPath: /home/jakub/pv/mongo
     auth:
-      secretName: baza_wiedzy-mongo-secret
-      baza_wiedzyName: baza_wiedzy-data-mongo-secret
+      initRootPassword: baza_wiedzy-mongo-secret
+      initRootUsername: baza_wiedzy-mongo-username
     service:
       name: baza_wiedzy-db-mongo-service
       port:
