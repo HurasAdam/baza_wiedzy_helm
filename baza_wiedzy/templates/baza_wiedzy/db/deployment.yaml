@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: { { .Values.forgejoDeps.db.deployment.name } }
+  name: { { .Values.baza_wiedzyDeps.db.deployment.name } }
   namespace: { { .Values.namespace } }
   labels:
-    app: { { .Values.forgejoDeps.db.deployment.name } }
+    app: { { .Values.baza_wiedzyDeps.db.deployment.name } }
 spec:
   progressDeadlineSeconds: 200
-  replicas: { { .Values.forgejoDeps.db.deployment.replicas } }
+  replicas: { { .Values.baza_wiedzyDeps.db.deployment.replicas } }
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: { { .Values.forgejoDeps.db.deployment.name } }
+      app: { { .Values.baza_wiedzyDeps.db.deployment.name } }
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -20,40 +20,40 @@ spec:
   template:
     metadata:
       labels:
-        app: { { .Values.forgejoDeps.db.deployment.name } }
+        app: { { .Values.baza_wiedzyDeps.db.deployment.name } }
     spec:
       containers:
-        - name: { { .Values.forgejoDeps.db.deployment.name } }
-          image: "{{ .Values.forgejoDeps.db.deployment.image }}:{{ .Values.forgejoDeps.db.deployment.tag }}"
+        - name: { { .Values.baza_wiedzyDeps.db.deployment.name } }
+          image: "{{ .Values.baza_wiedzyDeps.db.deployment.image }}:{{ .Values.baza_wiedzyDeps.db.deployment.tag }}"
           imagePullPolicy: Always
           ports:
-            - containerPort: { { .Values.forgejoDeps.db.deployment.port } }
+            - containerPort: { { .Values.baza_wiedzyDeps.db.deployment.port } }
           resources:
             limits:
-              cpu: "{{ .Values.forgejoDeps.db.deployment.limits.cpu }}"
-              memory: "{{ .Values.forgejoDeps.db.deployment.limits.memory }}"
+              cpu: "{{ .Values.baza_wiedzyDeps.db.deployment.limits.cpu }}"
+              memory: "{{ .Values.baza_wiedzyDeps.db.deployment.limits.memory }}"
             requests:
-              cpu: "{{ .Values.forgejoDeps.db.deployment.requests.cpu }}"
-              memory: "{{ .Values.forgejoDeps.db.deployment.requests.memory }}"
+              cpu: "{{ .Values.baza_wiedzyDeps.db.deployment.requests.cpu }}"
+              memory: "{{ .Values.baza_wiedzyDeps.db.deployment.requests.memory }}"
           volumeMounts:
             - mountPath: "/data/db"
-              name: { { .Values.forgejoDeps.db.pvc.name } }
+              name: { { .Values.baza_wiedzyDeps.db.pvc.name } }
           env:
             - name: MONGO_INITDB_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: { { .Values.forgejoDeps.db.auth.initRootPassword } }
+                  name: { { .Values.baza_wiedzyDeps.db.auth.initRootPassword } }
                   key: MONGO_PASSWORD
             - name: MONGO_INITDB_ROOT_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: { { .Values.forgejoDeps.db.auth.initRootUsername } }
+                  name: { { .Values.baza_wiedzyDeps.db.auth.initRootUsername } }
                   key: MONGO_USER
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 60
       volumes:
-        - name: { { .Values.forgejoDeps.db.pvc.name } }
+        - name: { { .Values.baza_wiedzyDeps.db.pvc.name } }
           persistentVolumeClaim:
-            claimName: { { .Values.forgejoDeps.db.pvc.name } }
+            claimName: { { .Values.baza_wiedzyDeps.db.pvc.name } }

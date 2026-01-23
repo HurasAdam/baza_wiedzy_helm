@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: {{ .Values.forgejoDeps.db.pv.name }}
+  name: { { .Values.baza_wiedzyDeps.db.pv.name } }
 spec:
   storageClassName: ""
   capacity:
-    storage: {{ .Values.forgejoDeps.db.pv.storage }}
+    storage: { { .Values.baza_wiedzyDeps.db.pv.storage } }
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: {{ .Values.forgejoDeps.db.pv.hostPath }}
+    path: { { .Values.baza_wiedzyDeps.db.pv.hostPath } }
