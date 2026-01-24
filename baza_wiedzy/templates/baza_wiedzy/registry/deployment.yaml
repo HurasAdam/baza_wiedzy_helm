@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.baza_wiedzyDeps.registry.deployment.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.baza_wiedzyDeps.registry.deployment.name }}
+spec:
+  progressDeadlineSeconds: 200
+  replicas: {{ .Values.baza_wiedzyDeps.registry.deployment.replicas }}
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: {{ .Values.baza_wiedzyDeps.registry.deployment.name }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.baza_wiedzyDeps.registry.deployment.name }}
+    spec:
+      containers:
+        - name: {{ .Values.baza_wiedzyDeps.registry.deployment.name }}
+          image: "{{ .Values.baza_wiedzyDeps.registry.deployment.image }}:{{ .Values.baza_wiedzyDeps.registry.deployment.tag }}"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: {{ .Values.baza_wiedzyDeps.registry.deployment.port }}
+          resources:
+            limits:
+              cpu: "{{ .Values.baza_wiedzyDeps.registry.deployment.limits.cpu }}"
+              memory: "{{ .Values.baza_wiedzyDeps.registry.deployment.limits.memory }}"
+            requests:
+              cpu: "{{ .Values.baza_wiedzyDeps.registry.deployment.requests.cpu }}"
+              memory: "{{ .Values.baza_wiedzyDeps.registry.deployment.requests.memory }}"
+          volumeMounts:
+            - mountPath: "/var/lib/registry"
+              name: "registry-storage"
+          env:
+            - name: REGISTRY_HTTP_HOST
+              value: https://https://${DOMAIN}
+            - name: REGISTRY_LOG_LEVEL
+              value: warn
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 60
+      volumes:
+        - name: registry-storage
+          emptyDir: {}

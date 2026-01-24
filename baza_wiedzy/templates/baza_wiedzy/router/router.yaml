@@ -15,7 +15,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: bazawiedzy-http
+            name: baza-wiedzy-db-mongo-service-http
             port:
               number: 5000
   - host: www.bazawiedzy.kiszczyc.pl
@@ -25,6 +25,26 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: bazawiedzy-http
+            name: baza-wiedzy-db-mongo-service-http
+            port:
+              number: 5000
+  - host: registry.bazawiedzy.kiszczyc.pl
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: baza-wiedzy-registry-service-http
+            port:
+              number: 5000
+  - host: www.registry.bazawiedzy.kiszczyc.pl
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: baza-wiedzy-registry-service-http
             port:
               number: 5000

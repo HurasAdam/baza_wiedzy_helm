@@ -32,3 +32,22 @@ baza_wiedzyDeps:
       port:
         name: baza-wiedzy-db-mongo-service-http
         value: 27017
+  # Container registry
+  registry:
+    deployment:
+      name: baza-wiedzy-registry
+      replicas: 1
+      image: registry
+      tag: 3
+      port: 5000
+      limits:
+        cpu: 1
+        memory: 2Gi
+      requests:
+        cpu: 0.25
+        memory: 200M
+    service:
+      name: baza-wiedzy-registry-service
+      port:
+        name: baza-wiedzy-registry-service-http
+        value: 5000
