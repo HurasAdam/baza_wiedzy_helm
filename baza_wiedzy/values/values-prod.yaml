@@ -56,7 +56,7 @@ baza_wiedzyDeps:
     deployment:
       name: baza-wiedzy-backend
       replicas: 1
-      image: 10.43.2.166:5000/backend
+      image: registry2.kiszczyc.pl/backend
       tag: latest
       port: 5000
       limits:
