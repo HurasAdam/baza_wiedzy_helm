@@ -6,6 +6,14 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
 spec:
+  buffering:
+    maxRequestBodyBytes: 0
+    memRequestBodyBytes: 0
+    maxResponseBodyBytes: 0
+    memResponseBodyBytes: 0
+  headers:
+    customRequestHeaders:
+      X-Forwarded-Proto: https
   ingressClassName: traefik
   rules:
   - host: registry2.kiszczyc.pl
@@ -16,6 +24,7 @@ spec:
         backend:
           service:
             name: baza-wiedzy-registry-service
+            scheme: http
             port:
               number: 5000
   - host: www.registry2.kiszczyc.pl
@@ -26,5 +35,6 @@ spec:
         backend:
           service:
             name: baza-wiedzy-registry-service
+            scheme: http
             port:
               number: 5000

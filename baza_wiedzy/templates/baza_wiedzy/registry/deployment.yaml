@@ -35,13 +35,7 @@ spec:
             requests:
               cpu: "{{ .Values.baza_wiedzyDeps.registry.deployment.requests.cpu }}"
               memory: "{{ .Values.baza_wiedzyDeps.registry.deployment.requests.memory }}"
-          volumeMounts:
-            - mountPath: "/var/lib/registry"
-              name: "registry-storage"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 60
-      volumes:
-        - name: registry-storage
-          emptyDir: {}
