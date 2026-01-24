@@ -51,3 +51,22 @@ baza_wiedzyDeps:
       port:
         name: baza-wiedzy-registry-service-http
         value: 5000
+
+  backend:
+    deployment:
+      name: baza-wiedzy-backend
+      replicas: 1
+      image: baza-wiedzy-registry-service:5000/backend
+      tag: latest
+      port: 5000
+      limits:
+        cpu: 1
+        memory: 2Gi
+      requests:
+        cpu: 0.25
+        memory: 200M
+    service:
+      name: baza-wiedzy-backend-service
+      port:
+        name: baza-wiedzy-backend-service-http
+        value: 5000

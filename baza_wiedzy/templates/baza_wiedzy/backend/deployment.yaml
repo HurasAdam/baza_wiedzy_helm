@@ -35,17 +35,6 @@ spec:
             requests:
               cpu: "{{ .Values.baza_wiedzyDeps.backend.deployment.requests.cpu }}"
               memory: "{{ .Values.baza_wiedzyDeps.backend.deployment.requests.memory }}"
-          env:
-            - name: MONGO_INITDB_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.baza_wiedzyDeps.db.auth.initRootPassword }}
-                  key: MONGO_PASSWORD
-            - name: MONGO_INITDB_ROOT_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.baza_wiedzyDeps.db.auth.initRootUsername }}
-                  key: MONGO_USER
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
