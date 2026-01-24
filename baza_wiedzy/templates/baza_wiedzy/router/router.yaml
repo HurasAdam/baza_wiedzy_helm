@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: traefik-ingress
-  namespace: {{ .Values.namespace }}
+  namespace: { { .Values.namespace } }
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
 spec:
@@ -57,6 +57,28 @@ spec:
             backend:
               service:
                 name: baza-wiedzy-backend-service
+                scheme: http
+                port:
+                  number: 5000
+    - host: baza-wiedzy-f.kiszczyc.pl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: baza-wiedzy-frontend-service
+                scheme: http
+                port:
+                  number: 5000
+    - host: www.baza-wiedzy-f.kiszczyc.pl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: baza-wiedzy-frontend-service
                 scheme: http
                 port:
                   number: 5000

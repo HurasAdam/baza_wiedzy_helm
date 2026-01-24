@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.baza_wiedzyDeps.frontend.service.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: {{ .Values.baza_wiedzyDeps.frontend.deployment.name }}
+  ports:
+    - name: {{ .Values.baza_wiedzyDeps.frontend.service.port.name }}
+      protocol: TCP
+      port: {{ .Values.baza_wiedzyDeps.frontend.deployment.port }}
+      targetPort: {{ .Values.baza_wiedzyDeps.frontend.service.port.value }}
