@@ -49,6 +49,8 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.baza_wiedzyDeps.db.auth.initRootUsername }}
                   key: MONGO_USER
+            - name: MONGO_INITDB_DATABASE
+              value: baza_wiedzy
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
