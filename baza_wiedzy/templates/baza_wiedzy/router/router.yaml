@@ -70,7 +70,7 @@ spec:
                 name: baza-wiedzy-frontend-service
                 scheme: http
                 port:
-                  number: 5000
+                  number: 5173
     - host: www.baza-wiedzy-f.kiszczyc.pl
       http:
         paths:
@@ -81,4 +81,4 @@ spec:
                 name: baza-wiedzy-frontend-service
                 scheme: http
                 port:
-                  number: 5000
+                  number: 5173

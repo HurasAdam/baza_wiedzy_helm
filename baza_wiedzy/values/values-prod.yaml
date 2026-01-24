@@ -76,7 +76,7 @@ baza_wiedzyDeps:
       replicas: 1
       image: registry2.kiszczyc.pl/frontend
       tag: latest
-      port: 5000
+      port: 5173
       limits:
         cpu: 1
         memory: 2Gi
@@ -87,4 +87,4 @@ baza_wiedzyDeps:
       name: baza-wiedzy-frontend-service
       port:
         name: baza-wiedzy-frontend-service-http
-        value: 5000
+        value: 5173
