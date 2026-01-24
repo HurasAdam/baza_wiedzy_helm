@@ -10,7 +10,7 @@ baza_wiedzyDeps:
       replicas: 1
       image: mongo
       tag: 8.2-noble
-      port: 3306
+      port: 27017
       limits:
         cpu: 1
         memory: 2Gi
