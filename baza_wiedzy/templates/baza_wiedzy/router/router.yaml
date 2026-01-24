@@ -35,7 +35,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: baza-wiedzy-registry-service-http
+            name: baza-wiedzy-registry-service
             port:
               number: 5000
   - host: www.registry2.kiszczyc.pl
@@ -45,6 +45,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: baza-wiedzy-registry-service-http
+            name: baza-wiedzy-registry-service
             port:
               number: 5000
