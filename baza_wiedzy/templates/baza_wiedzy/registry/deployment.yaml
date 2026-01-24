@@ -40,7 +40,7 @@ spec:
               name: "registry-storage"
           env:
             - name: REGISTRY_HTTP_HOST
-              value: https://https://${DOMAIN}
+              value: https://registry2.kiszczyc.pl
             - name: REGISTRY_LOG_LEVEL
               value: warn
             - name: OTEL_TRACES_EXPORTER
