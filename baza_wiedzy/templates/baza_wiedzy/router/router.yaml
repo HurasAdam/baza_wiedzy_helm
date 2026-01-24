@@ -28,7 +28,7 @@ spec:
             name: baza-wiedzy-db-mongo-service-http
             port:
               number: 5000
-  - host: registry.bazawiedzy.kiszczyc.pl
+  - host: registry2.kiszczyc.pl
     http:
       paths:
       - path: /
@@ -38,7 +38,7 @@ spec:
             name: baza-wiedzy-registry-service-http
             port:
               number: 5000
-  - host: www.registry.bazawiedzy.kiszczyc.pl
+  - host: www.registry2.kiszczyc.pl
     http:
       paths:
       - path: /
