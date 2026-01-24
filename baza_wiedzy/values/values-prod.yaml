@@ -38,7 +38,7 @@ baza_wiedzyDeps:
       name: baza-wiedzy-registry
       replicas: 1
       image: registry
-      tag: 3
+      tag: 2
       port: 5000
       limits:
         cpu: 1
