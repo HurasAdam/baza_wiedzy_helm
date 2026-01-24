@@ -8,26 +8,6 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: bazawiedzy.kiszczyc.pl
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: baza-wiedzy-db-mongo-service-http
-            port:
-              number: 5000
-  - host: www.bazawiedzy.kiszczyc.pl
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: baza-wiedzy-db-mongo-service-http
-            port:
-              number: 5000
   - host: registry2.kiszczyc.pl
     http:
       paths:
