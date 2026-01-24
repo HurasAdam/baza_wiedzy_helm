@@ -6,7 +6,7 @@ baza_wiedzyDeps:
   # Mongo
   db:
     deployment:
-      name: baza_wiedzy-db-mongo
+      name: bazaWiedzy-db-mongo
       replicas: 1
       image: mongo
       tag: 8.2-noble
@@ -18,17 +18,17 @@ baza_wiedzyDeps:
         cpu: 0.25
         memory: 200M
     pvc:
-      name: baza_wiedzy-db-mongo-pvc
+      name: bazaWiedzy-db-mongo-pvc
       storage: "10Gi"
     pv:
-      name: baza_wiedzy-db-mongo-pv
+      name: bazaWiedzy-db-mongo-pv
       storage: "10Gi"
       hostPath: /home/jakub/pv/mongo
     auth:
-      initRootPassword: baza_wiedzy-mongo-secret
-      initRootUsername: baza_wiedzy-mongo-username
+      initRootPassword: bazaWiedzy-mongo-secret
+      initRootUsername: bazaWiedzy-mongo-username
     service:
-      name: baza_wiedzy-db-mongo-service
+      name: bazaWiedzy-db-mongo-service
       port:
-        name: baza_wiedzy-db-mongo-service-http
+        name: bazaWiedzy-db-mongo-service-http
         value: 27017
