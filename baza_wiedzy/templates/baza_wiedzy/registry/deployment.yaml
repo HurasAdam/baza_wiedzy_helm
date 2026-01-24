@@ -38,9 +38,6 @@ spec:
           volumeMounts:
             - mountPath: "/var/lib/registry"
               name: "registry-storage"
-          env:
-            - name: REGISTRY_HTTP_HOST
-              value: https://registry2.kiszczyc.pl
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
