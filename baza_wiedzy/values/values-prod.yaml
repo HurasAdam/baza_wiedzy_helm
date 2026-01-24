@@ -23,7 +23,7 @@ baza_wiedzyDeps:
     pv:
       name: baza-wiedzy-db-mongo-pv
       storage: "10Gi"
-      hostPath: /home/jakub/pv/mongo
+      hostPath: /home/jakub/pv/mongo2
     auth:
       initRootPassword: mongo-secret
       initRootUsername: mongo-secret
