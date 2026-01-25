@@ -57,7 +57,7 @@ baza_wiedzyDeps:
     deployment:
       name: baza-wiedzy-backend
       replicas: 1
-      image: 10.43.2.166:5000/backend
+      image: 79.187.49.90:32711/backend
       tag: latest
       port: 5000
       limits:
@@ -82,7 +82,7 @@ baza_wiedzyDeps:
     deployment:
       name: baza-wiedzy-frontend
       replicas: 1
-      image: 10.43.2.166:5000/frontend
+      image: 79.187.49.90:32711/frontend
       tag: latest
       port: 5173
       limits:
