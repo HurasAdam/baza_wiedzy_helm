@@ -4,10 +4,12 @@ metadata:
   name: {{ .Values.baza_wiedzyDeps.registry.service.name }}
   namespace: {{ .Values.namespace }}
 spec:
+  type: NodePort
   selector:
-    app: {{ .Values.baza_wiedzyDeps.registry.deployment.name }}
+    app.kubernetes.io/instance: {{ .Values.baza_wiedzyDeps.registry.deployment.name }}
+    app.kubernetes.io/name: {{ .Values.baza_wiedzyDeps.registry.deployment.name }}
   ports:
     - name: {{ .Values.baza_wiedzyDeps.registry.service.port.name }}
-      protocol: TCP
       port: {{ .Values.baza_wiedzyDeps.registry.deployment.port }}
       targetPort: {{ .Values.baza_wiedzyDeps.registry.service.port.value }}
+      nodePort: {{ .Values.baza_wiedzyDeps.registry.service.nodePort.value }}

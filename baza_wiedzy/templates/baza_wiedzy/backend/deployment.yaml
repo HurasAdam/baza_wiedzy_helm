@@ -35,7 +35,14 @@ spec:
             requests:
               cpu: "{{ .Values.baza_wiedzyDeps.backend.deployment.requests.cpu }}"
               memory: "{{ .Values.baza_wiedzyDeps.backend.deployment.requests.memory }}"
+          volumeMounts:
+            - mountPath: "/app/uploads"
+              name: {{ .Values.baza_wiedzyDeps.backend.pvc.name }}
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 60
+      volumes:
+        - name: {{ .Values.baza_wiedzyDeps.backend.pvc.name }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.baza_wiedzyDeps.backend.pvc.name }}

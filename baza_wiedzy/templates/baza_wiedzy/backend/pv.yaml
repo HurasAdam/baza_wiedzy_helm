@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Values.baza_wiedzyDeps.backend.pv.name }}
+spec:
+  storageClassName: ""
+  capacity:
+    storage: {{ .Values.baza_wiedzyDeps.backend.pv.storage }}
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: {{ .Values.baza_wiedzyDeps.backend.pv.hostPath }}

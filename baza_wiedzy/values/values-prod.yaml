@@ -51,7 +51,8 @@ baza_wiedzyDeps:
       port:
         name: baza-wiedzy-registry-service-http
         value: 5000
-
+      nodePort:
+        value: 32711
   backend:
     deployment:
       name: baza-wiedzy-backend
@@ -70,6 +71,13 @@ baza_wiedzyDeps:
       port:
         name: baza-wiedzy-backend-service-http
         value: 5000
+    pvc:
+      name: baza-wiedzy-backend-mongo-pvc
+      storage: "10Gi"
+    pv:
+      name: baza-wiedzy-backend-mongo-pv
+      storage: "10Gi"
+      hostPath: /home/jakub/pv/backendFiles
   frontend:
     deployment:
       name: baza-wiedzy-frontend
