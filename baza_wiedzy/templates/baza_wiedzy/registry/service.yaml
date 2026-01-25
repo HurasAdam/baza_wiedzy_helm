@@ -6,8 +6,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app.kubernetes.io/instance: {{ .Values.baza_wiedzyDeps.registry.deployment.name }}
-    app.kubernetes.io/name: {{ .Values.baza_wiedzyDeps.registry.deployment.name }}
+    app: {{ .Values.baza_wiedzyDeps.registry.deployment.name }}
   ports:
     - name: {{ .Values.baza_wiedzyDeps.registry.service.port.name }}
       port: {{ .Values.baza_wiedzyDeps.registry.deployment.port }}
