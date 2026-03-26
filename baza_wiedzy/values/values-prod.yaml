@@ -9,7 +9,7 @@ baza_wiedzyDeps:
       name: baza-wiedzy-db-mongo
       replicas: 1
       image: mongo
-      tag: 8.2-noble
+      tag: 8.2.6-noble
       port: 27017
       limits:
         cpu: 1

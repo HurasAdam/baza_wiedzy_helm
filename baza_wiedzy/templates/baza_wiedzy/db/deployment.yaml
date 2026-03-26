@@ -54,6 +54,8 @@ spec:
                   key: MONGO_USER
             - name: MONGO_INITDB_DATABASE
               value: baza_wiedzy
+            - name: GLIBC_TUNABLES
+              value: "glibc.pthread.rseq"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
